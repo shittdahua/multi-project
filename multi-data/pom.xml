@@ -11,5 +11,15 @@
 
     <artifactId>multi-data</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.stone</groupId>
+            <artifactId>multi-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
