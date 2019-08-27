@@ -8,6 +8,7 @@
         <module>multi-common</module>
         <module>multi-biz</module>
         <module>multi-data</module>
+        <module>multi-auto-generator</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
