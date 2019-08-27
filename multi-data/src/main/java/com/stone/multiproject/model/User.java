@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserDO extends BaseDO {
+public class User extends BaseDO {
 
     /**
      * Column: name

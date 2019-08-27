@@ -36,6 +36,7 @@
         <commons-io.version>2.6</commons-io.version>
         <easyexcel.version>1.0.3</easyexcel.version>
         <sentinel-transport.version>1.6.3</sentinel-transport.version>
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -61,15 +62,22 @@
                 <version>${multi.common.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
-            <dependency>
+
+            <!-- 使用了mybatis-plus，因此注释掉此依赖 -->
+            <!--<dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot-starter.version}</version>
-            </dependency>
+            </dependency>-->
 
             <dependency>
                 <groupId>com.alibaba</groupId>
