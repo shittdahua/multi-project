@@ -9,6 +9,7 @@
         <module>multi-biz</module>
         <module>multi-data</module>
         <module>multi-auto-generator</module>
+        <module>multi-login</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -38,30 +39,18 @@
         <easyexcel.version>1.0.3</easyexcel.version>
         <sentinel-transport.version>1.6.3</sentinel-transport.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <okhttp.version>4.1.0</okhttp.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
             <dependency>
-                <groupId>com.stone</groupId>
-                <artifactId>multi-web</artifactId>
-                <version>${multi.normal.version}</version>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.stone</groupId>
-                <artifactId>multi-biz</artifactId>
-                <version>${multi.normal.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.stone</groupId>
-                <artifactId>multi-data</artifactId>
-                <version>${multi.normal.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.stone</groupId>
-                <artifactId>multi-common</artifactId>
-                <version>${multi.common.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -142,6 +131,27 @@
                 <groupId>com.alibaba.csp</groupId>
                 <artifactId>sentinel-web-servlet</artifactId>
                 <version>${sentinel-transport.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.stone</groupId>
+                <artifactId>multi-web</artifactId>
+                <version>${multi.normal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.stone</groupId>
+                <artifactId>multi-biz</artifactId>
+                <version>${multi.normal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.stone</groupId>
+                <artifactId>multi-data</artifactId>
+                <version>${multi.normal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.stone</groupId>
+                <artifactId>multi-common</artifactId>
+                <version>${multi.common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
