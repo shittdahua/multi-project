@@ -1,3 +1,4 @@
+/*
 package com.stone.multiproject.quartz.config;
 
 import com.stone.multiproject.quartz.demo.MyJobFactory;
@@ -43,9 +44,11 @@ public class ApplicationStartQuartzJobListener implements ApplicationListener<Co
         return schedulerFactoryBean;
     }
 
-    /**
+    */
+/**
      * 初始注入scheduler
-     */
+     *//*
+
     @Bean
     public Scheduler scheduler() throws SchedulerException{
         SchedulerFactory schedulerFactoryBean = new StdSchedulerFactory();
@@ -53,3 +56,4 @@ public class ApplicationStartQuartzJobListener implements ApplicationListener<Co
     }
 
 }
+*/

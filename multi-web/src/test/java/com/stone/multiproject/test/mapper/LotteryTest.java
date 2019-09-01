@@ -1,7 +1,6 @@
 package com.stone.multiproject.test.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.google.common.base.Splitter;
 import com.stone.multiproject.base.Pair;
 import com.stone.multiproject.mapper.LotteryMapper;
 import com.stone.multiproject.model.Lottery;
@@ -15,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
