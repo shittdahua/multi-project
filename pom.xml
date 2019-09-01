@@ -40,10 +40,29 @@
         <sentinel-transport.version>1.6.3</sentinel-transport.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <okhttp.version>4.1.0</okhttp.version>
+        <xxl-job.version>2.1.0</xxl-job.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- https://mvnrepository.com/artifact/com.xuxueli/xxl-job-core -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
@@ -153,6 +172,7 @@
                 <artifactId>multi-common</artifactId>
                 <version>${multi.common.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 

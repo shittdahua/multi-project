@@ -31,7 +31,7 @@ public class HttpHelp {
         if (MapUtils.isNotEmpty(param)) {
             param.entrySet().forEach(o -> {
                 try {
-                    params.append(o.getKey() + URLEncoder.encode(o.getValue(), "utf-8"));
+                    params.append(o.getKey() + "=" + URLEncoder.encode(o.getValue(), "utf-8"));
                     params.append("&");
                 } catch (Throwable e) {
                     log.error(StringUtils.EMPTY, e);

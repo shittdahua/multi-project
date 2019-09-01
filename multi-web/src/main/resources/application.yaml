@@ -10,3 +10,17 @@ spring:
 
 stone:
   key:d1b7a9e3cf957ca8218eb43fc8d055d8
+
+
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8081/xxl-job-admin
+    executor:
+      appname: multi-project
+      ip:
+      port: 9999
+      logpath: /Users/tt/log/applogs/xxl-job/jobhandler
+      logretentiondays: -1
+    accessToken: stt-xxl-job
