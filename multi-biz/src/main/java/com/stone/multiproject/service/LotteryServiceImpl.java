@@ -1,5 +1,8 @@
 package com.stone.multiproject.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.stone.multiproject.mapper.LotteryMapper;
 import com.stone.multiproject.model.Lottery;
 import com.stone.multiproject.remote.LotteryRemote;
@@ -16,6 +19,10 @@ public class LotteryServiceImpl {
 
     @Resource
     private LotteryMapper lotteryMapper;
+
+    public List<Lottery> queryByPage(IPage iPage, QueryWrapper<Lottery> queryWrapper) {
+        return lotteryMapper.selectPage(iPage, queryWrapper).getRecords();
+    }
 
     public void pullLotteryDataFromJuHeLoop() {
         log.info("LotteryServiceImpl pullLotteryDataFromJuHeLoop start...");

@@ -2,3 +2,4 @@
 multi-web/target/*
 multi-data/target/*
 multi-biz/target/*
+*.class

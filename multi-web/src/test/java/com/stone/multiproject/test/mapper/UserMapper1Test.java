@@ -1,6 +1,6 @@
 package com.stone.multiproject.test.mapper;
 
-import com.stone.multiproject.mapper.UserMapper;
+import com.stone.multiproject.mapper.UserMapper1;
 import com.stone.multiproject.model.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,14 +12,14 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserMapperTest {
+public class UserMapper1Test {
 
     @Resource
-    UserMapper userMapper;
+    UserMapper1 userMapper1;
 
     @Test
     public void demo() {
-        User user = userMapper.selectById(1);
+        User user = userMapper1.selectById(1);
         Assert.assertTrue(user != null);
         System.out.println(user);
     }

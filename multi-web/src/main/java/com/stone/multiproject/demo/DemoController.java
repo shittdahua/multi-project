@@ -1,6 +1,6 @@
 package com.stone.multiproject.demo;
 
-import com.stone.multiproject.mapper.UserMapper;
+import com.stone.multiproject.mapper.UserMapper1;
 import com.stone.multiproject.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +18,10 @@ public class DemoController {
     }
 
     @Resource
-    UserMapper userMapper;
+    UserMapper1 userMapper1;
 
     @GetMapping("/get")
     public User find() {
-        return userMapper.selectById(1L);
+        return userMapper1.selectById(1L);
     }
 }
