@@ -8,6 +8,7 @@ public class Constant {
     public final String DLT_TICKET = "dlt";
     public final String COMMA = ",";
     public final String UNDER_LINE = "_";
+    public final String SHUXIAN = "||";
 
     /**
      * 5个常规数字，最大为35
