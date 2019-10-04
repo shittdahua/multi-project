@@ -5,6 +5,7 @@ import com.stone.multiproject.context.TicketContext;
 import com.stone.multiproject.entity.TicketNumber;
 import com.stone.multiproject.filter.AbstractTicketFilter;
 import com.stone.multiproject.utils.TicketNumberHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
+@Slf4j
 public class DltMinSumFilter extends AbstractTicketFilter {
 
     @Override
@@ -52,6 +54,7 @@ public class DltMinSumFilter extends AbstractTicketFilter {
             context.isTerminate(true);
         }
         context.setTicketPlanData(result);
+        log.warn("DltMinSumFilter filter old size :{}, after size:{}", ticketData.size(), result.size());
         return context;
     }
 
