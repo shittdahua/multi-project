@@ -1,7 +1,9 @@
 package com.stone.multiproject.filter;
 
 import com.stone.multiproject.context.TicketContext;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public abstract class AbstractTicketFilter implements TicketFilter{
 
     @Override
@@ -20,7 +22,10 @@ public abstract class AbstractTicketFilter implements TicketFilter{
         if (context.isTerminate()) {
             return context;
         }
-        return filterByContext(context);
+        long l = System.currentTimeMillis();
+        TicketContext ticketContext = filterByContext(context);
+        log.warn("{} cost time :{}ms", this.getClass().getName(), System.currentTimeMillis() - l);
+        return ticketContext;
     }
 
     protected abstract TicketContext filterByContext(TicketContext context);

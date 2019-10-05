@@ -4,12 +4,14 @@ import com.stone.multiproject.constant.Constant;
 import com.stone.multiproject.context.TicketContext;
 import com.stone.multiproject.entity.TicketNumber;
 import com.stone.multiproject.filter.AbstractTicketFilter;
+import com.stone.multiproject.utils.DateHelp;
 import com.stone.multiproject.utils.TicketNumberHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -26,7 +28,14 @@ public class DltMinSumFilter extends AbstractTicketFilter {
     @Override
     protected TicketContext filterByContext(TicketContext context) {
         List<TicketNumber> ticketData = context.getTicketPlanData();
+
+        Date convert = DateHelp.convert("2018-08-31", DateHelp.DATE_FORMAT);
         List<TicketNumber> ticketHistoryData = context.getTicketHistoryData();
+//        List<TicketNumber> ticketHistoryData = context.getTicketHistoryData()
+//                .stream()
+//                .filter(o -> o.getLotteryDate().after(convert))
+//                .collect(Collectors.toList());
+
         //1,常规数字最大最小和特殊数字最大最小
         Map<Integer, List<Integer>> normalNumberMap = ticketHistoryData.stream()
                 .map(this::sumNormalTicketNumber)
@@ -47,7 +56,7 @@ public class DltMinSumFilter extends AbstractTicketFilter {
                     return specialNumberMap.getOrDefault(sumSpecialTicketNumber(o), Collections.emptyList()).size() > 2;
                 })
                 .filter(o -> {
-                    return allNumberMap.getOrDefault(sumAllTicketNumber(o), Collections.emptyList()).size() > 2;
+                    return allNumberMap.getOrDefault(sumAllTicketNumber(o), Collections.emptyList()).size() > 3;
                 })
                 .collect(Collectors.toList());
         if (CollectionUtils.isEmpty(result)) {

@@ -9,11 +9,13 @@ import com.stone.multiproject.model.Lottery;
 import com.stone.multiproject.service.LotteryServiceImpl;
 import com.stone.multiproject.utils.DateHelp;
 import com.stone.multiproject.utils.LoopQueryHelper;
+import com.stone.multiproject.utils.SplitterHelper;
 import com.stone.multiproject.utils.TicketNumberHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,6 +68,11 @@ public class DltNumberProcess {
                 .entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + Constant.UNDER_LINE + entry.getValue().size())
+                .sorted((a,b) -> {
+                    List<String> aList = SplitterHelper.UNDERLINE_SPLITTER.splitToList(a);
+                    List<String> bList = SplitterHelper.UNDERLINE_SPLITTER.splitToList(b);
+                    return new BigDecimal(bList.get(0)).compareTo(new BigDecimal(aList.get(0)));
+                })
                 .collect(Collectors.joining(Constant.SHUXIAN));
         int sum = collect.stream().mapToInt(o -> o).sum();
         int costMoney = ticketPlanData.size() * 2;
@@ -78,6 +85,11 @@ public class DltNumberProcess {
                 .entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + Constant.UNDER_LINE + entry.getValue().size())
+                .sorted((a,b) -> {
+                    List<String> aList = SplitterHelper.UNDERLINE_SPLITTER.splitToList(a);
+                    List<String> bList = SplitterHelper.UNDERLINE_SPLITTER.splitToList(b);
+                    return new BigDecimal(bList.get(0)).compareTo(new BigDecimal(aList.get(0)));
+                })
                 .collect(Collectors.joining(Constant.SHUXIAN));
         int sum1 = collect1.stream().mapToInt(o -> o).sum();
         int costMoney1 = ticket.size() * 2;

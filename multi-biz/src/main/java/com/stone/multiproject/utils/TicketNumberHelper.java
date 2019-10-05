@@ -127,7 +127,7 @@ public class TicketNumberHelper {
 
         TicketMatchRule ticketMatchRule = DLT_WINNING_RULE.stream().filter(o -> o.equals(toCheckNumber)).findFirst().orElse(null);
         if (ticketMatchRule != null) {
-            if (ticketMatchRule.getWinningLevel() >= 6){
+            if (ticketMatchRule.getWinningLevel() >= 2){
                 //log.warn("WINNING WINNING WINNING,toCheck:{},match :{}", toCheck, ticketMatchRule);
             }
             return ticketMatchRule.getMoney();

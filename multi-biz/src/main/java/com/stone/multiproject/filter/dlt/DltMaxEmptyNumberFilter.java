@@ -5,10 +5,12 @@ import com.stone.multiproject.constant.Constant;
 import com.stone.multiproject.context.TicketContext;
 import com.stone.multiproject.entity.TicketNumber;
 import com.stone.multiproject.filter.AbstractTicketFilter;
+import com.stone.multiproject.utils.DateHelp;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +28,11 @@ public class DltMaxEmptyNumberFilter extends AbstractTicketFilter {
     @Override
     protected TicketContext filterByContext(TicketContext context) {
         int[] dltThreshold = Constant.DLT_THRESHOLD;
-        List<TicketNumber> ticketHistoryData = context.getTicketHistoryData();
+        Date convert = DateHelp.convert("2018-08-31", DateHelp.DATE_FORMAT);
+        List<TicketNumber> ticketHistoryData = context.getTicketHistoryData()
+                .stream()
+                .filter(o -> o.getLotteryDate().after(convert))
+                .collect(Collectors.toList());
         Map<Integer, Integer> maxEmptyCountMap = new HashMap<>(35);
         for (Integer i = 1; i <= dltThreshold[1]; i++) {
             int oldDataSize = ticketHistoryData.size();
