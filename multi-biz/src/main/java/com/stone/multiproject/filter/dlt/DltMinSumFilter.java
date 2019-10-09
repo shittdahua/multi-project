@@ -29,8 +29,8 @@ public class DltMinSumFilter extends AbstractTicketFilter {
     protected TicketContext filterByContext(TicketContext context) {
         List<TicketNumber> ticketData = context.getTicketPlanData();
 
-        Date convert = DateHelp.convert("2018-08-31", DateHelp.DATE_FORMAT);
         List<TicketNumber> ticketHistoryData = context.getTicketHistoryData();
+//        Date convert = DateHelp.convert("2018-08-31", DateHelp.DATE_FORMAT);
 //        List<TicketNumber> ticketHistoryData = context.getTicketHistoryData()
 //                .stream()
 //                .filter(o -> o.getLotteryDate().after(convert))
@@ -56,7 +56,7 @@ public class DltMinSumFilter extends AbstractTicketFilter {
                     return specialNumberMap.getOrDefault(sumSpecialTicketNumber(o), Collections.emptyList()).size() > 2;
                 })
                 .filter(o -> {
-                    return allNumberMap.getOrDefault(sumAllTicketNumber(o), Collections.emptyList()).size() > 3;
+                    return allNumberMap.getOrDefault(sumAllTicketNumber(o), Collections.emptyList()).size() > 5;
                 })
                 .collect(Collectors.toList());
         if (CollectionUtils.isEmpty(result)) {
