@@ -10,6 +10,7 @@
         <module>multi-data</module>
         <module>multi-auto-generator</module>
         <module>multi-login</module>
+        <module>multi-hot-reload</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -187,6 +188,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.stone</groupId>
+            <artifactId>multi-hot-reload</artifactId>
+            <version>${multi.normal.version}</version>
         </dependency>
     </dependencies>
 
